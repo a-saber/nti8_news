@@ -4,16 +4,18 @@ import 'package:flutter_svg/svg.dart';
 import '../utils/app_colors.dart';
 
 class DefaultTextField extends StatelessWidget {
-  const DefaultTextField({super.key, this.validator, required this.controller, this.obscureText = false ,this.suffixIcon, required this.hint, this.prefixPath});
+  const DefaultTextField({super.key, this.onChanged,this.validator, required this.controller, this.obscureText = false ,this.suffixIcon, required this.hint, this.prefixPath});
   final String hint;
   final String? prefixPath;
   final Widget? suffixIcon;
   final bool obscureText;
   final TextEditingController controller;
   final String? Function(String?)? validator;
+  final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       validator: validator,
       controller: controller,
       obscuringCharacter: '*',

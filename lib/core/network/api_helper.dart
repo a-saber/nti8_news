@@ -2,12 +2,14 @@ import 'package:dio/dio.dart';
 
 import 'end_points.dart';
 
-String? accessToken;
-String? refreshToken;
+String apiKey = '836086f05b344448a16dd41ee51c6320';
 
 class ApiHelper {
-  static Dio dio = Dio(BaseOptions(
-      baseUrl: EndPoints.baseUrl
+  Dio dio = Dio(BaseOptions(
+      baseUrl: EndPoints.baseUrl,
+    queryParameters: {
+        'apiKey': apiKey
+    }
   ));
 
 

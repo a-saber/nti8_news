@@ -4,6 +4,7 @@ import 'package:nti8_news/features/home/presentation/cubit/test_cubit/test_state
 class TestCubit extends Cubit<TestState>{
   TestCubit(): super(TestInitState());
 
+  static TestCubit get(context) => BlocProvider.of(context);
   bool mySwitch = false;
   bool myCheckBox = false;
 
@@ -17,5 +18,12 @@ class TestCubit extends Cubit<TestState>{
       myCheckBox = value;
     }
     emit(CheckBoxChangedState());
+  }
+
+
+  double containerSize = 100;
+  changeContainerSize(){
+    containerSize += 20;
+    emit(ContainerSizeChangedState());
   }
 }
